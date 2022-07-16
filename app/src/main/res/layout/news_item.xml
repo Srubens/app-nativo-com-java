@@ -4,33 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     android:layout_width="match_parent"
-    android:layout_height="320dp"
-    android:layout_margin="8dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:layout_marginBottom="20dp"
+    android:padding="10dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp">
 
         <ImageView
             android:id="@+id/imageCard"
-            android:layout_width="395dp"
-            android:layout_height="180dp"
+            android:layout_width="397dp"
+            android:layout_height="171dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="imagem do post"
             android:src="@color/teal_200"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.01"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="imagem do post" />
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/textTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageCard"
@@ -38,12 +40,11 @@
 
         <TextView
             android:id="@+id/textDescription"
-            android:layout_width="360dp"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.285"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTitle"
             tools:text="Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi." />
@@ -52,19 +53,20 @@
             android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
             android:text="Visualizar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
         <ImageView
             android:id="@+id/iconFavorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="112dp"
+            android:background="?android:selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:contentDescription="@string/title_favorites"
             android:focusable="true"
             app:layout_constraintStart_toEndOf="@+id/btn"
             app:layout_constraintTop_toTopOf="@+id/btn"
@@ -74,12 +76,16 @@
             android:id="@+id/iconShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="212dp"
+            android:layout_marginStart="188dp"
+            android:background="?android:selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             app:layout_constraintStart_toEndOf="@+id/btn"
             app:layout_constraintTop_toTopOf="@+id/iconFavorite"
-            app:srcCompat="@drawable/ic_share_24" />
+            app:srcCompat="@drawable/ic_share_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

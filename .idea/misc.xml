@@ -9,14 +9,14 @@
         <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/fragment_favorites.xml" value="0.2421875" />
         <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/fragment_news.xml" value="0.17798913043478262" />
+        <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/fragment_news.xml" value="0.40505226480836237" />
         <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/fragment_notifications.xml" value="0.10104166666666667" />
-        <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/news_item.xml" value="0.536" />
+        <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/layout/news_item.xml" value="0.5091277890466531" />
         <entry key="..\:/RUBENS/DIO/BOOTCAMP-SANTANDER/SoccerNews/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2421875" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

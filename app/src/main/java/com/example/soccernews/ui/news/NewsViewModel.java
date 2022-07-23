@@ -23,7 +23,7 @@ public class NewsViewModel extends ViewModel {
 
     public NewsViewModel() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://gist.githubusercontent.com/Srubens/db69a7b9ab4376a2f483112b73ae3bfd/raw/0d0103e253e5fe10735b5dd05a98a7511476b9de/")
+                .baseUrl("https://srubens.github.io/api-dataDio/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

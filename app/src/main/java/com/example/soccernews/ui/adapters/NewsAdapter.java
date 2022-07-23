@@ -3,6 +3,7 @@ package com.example.soccernews.ui.adapters;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -17,9 +18,12 @@ import java.util.List;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private List<News> news;
+    private final View.OnClickListener favoriteListener;
 
-    public NewsAdapter(List<News> news){
+    public NewsAdapter(List<News> news, View.OnClickListener favoriteListener){
+
         this.news = news;
+        this.favoriteListener = favoriteListener;
     }
 
     @NonNull
@@ -33,14 +37,25 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         News news = this.news.get(position);
-        holder.binding.textTitle.setText(news.getTitle());
-        holder.binding.textDescription.setText(news.getDescription());
-        Picasso.get().load(news.getImage()).into(holder.binding.imageCard);
+        holder.binding.textTitle.setText(news.title);
+        holder.binding.textDescription.setText(news.description);
+        Picasso.get().load(news.image).into(holder.binding.imageCard);
+        //FUNCIONALIDADE PARA ABRIR O LINK
         holder.binding.btn.setOnClickListener(view->{
             Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(news.getLink()));
+            i.setData(Uri.parse(news.link));
             holder.itemView.getContext().startActivity(i);
         });
+        //BOTAO DE COMPARTILHAR
+        holder.binding.iconShare.setOnClickListener(view ->{
+            Intent i  = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_TEXT, news.link);//PODERIA SER UM TEXTO
+            holder.itemView.getContext().startActivity(Intent.createChooser(i,"share view"));
+        });
+
+        //BOTAO DE FAVORITO O EVENTO SERA INSTANCIADO PELO FRAGMENTO
+        holder.binding.iconFavorite.setOnClickListener(this.favoriteListener);
     }
 
     @Override

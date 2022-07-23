@@ -3,7 +3,6 @@ package com.example.soccernews.ui.adapters;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -18,9 +17,9 @@ import java.util.List;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private List<News> news;
-    private final View.OnClickListener favoriteListener;
+    private final FavoriteListener favoriteListener;
 
-    public NewsAdapter(List<News> news, View.OnClickListener favoriteListener){
+    public NewsAdapter(List<News> news, FavoriteListener favoriteListener){
 
         this.news = news;
         this.favoriteListener = favoriteListener;
@@ -55,7 +54,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         });
 
         //BOTAO DE FAVORITO O EVENTO SERA INSTANCIADO PELO FRAGMENTO
-        holder.binding.iconFavorite.setOnClickListener(this.favoriteListener);
+        holder.binding.iconFavorite.setOnClickListener(view ->{
+            news.favorite = !news.favorite;
+            this.favoriteListener.onFavorite(news);
+            notifyItemChanged(position);
+        });
     }
 
     @Override
@@ -69,6 +72,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             super(binding.getRoot());
             this.binding = binding;
         }
+    }
+
+    public interface FavoriteListener{
+        void onFavorite(News news);
     }
 
 }

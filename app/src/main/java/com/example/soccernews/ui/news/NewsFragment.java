@@ -11,13 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.room.Room;
 
+import com.example.soccernews.data.local.AppDataBase;
 import com.example.soccernews.databinding.FragmentNewsBinding;
 import com.example.soccernews.ui.adapters.NewsAdapter;
 
 public class NewsFragment extends Fragment {
 
     private FragmentNewsBinding binding;
+    private AppDataBase db;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -27,11 +30,14 @@ public class NewsFragment extends Fragment {
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        db = Room.databaseBuilder(this.getContext(),
+                AppDataBase.class, "soccer-news").build();
+
         //final TextView textView = binding.textNews;
         binding.rvNews.setLayoutManager(new LinearLayoutManager(getContext()));
         newsViewModel.getNews().observe(getViewLifecycleOwner(), news ->{
-            binding.rvNews.setAdapter(new NewsAdapter(news, view->{
-                Log.d("MINHA TAG", "clicou");
+            binding.rvNews.setAdapter(new NewsAdapter(news, updateNews ->{
+                db.newsDao().insert(updateNews);
             }));
         });
         return root;
